@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario Familiar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #000000, #1e3c72); /* negro a azul oscuro */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      text-align: left;
+      color: #444;
+      font-weight: bold;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #1e3c72;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #12294f;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a button {
+      margin-top: 10px;
+      background-color: #888;
+    }
+
+    a button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Formulario de Datos Familiares</h1>
+
+    <form id="familiaForm" action="/guardar" method="POST">
+      <label for="gastos">Gastos familiares mensuales:</label>
+      <input type="number" name="gastos" required>
+
+      <label for="ingresos">Ingresos familiares por mes:</label>
+      <input type="number" name="ingresos" required>
+
+      <label for="miembros">Miembros familiares que trabajan:</label>
+      <input type="number" name="miembros" required>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <a href="/"><button>Volver a la página principal</button></a>
+  </div>
+</body>
+</html>

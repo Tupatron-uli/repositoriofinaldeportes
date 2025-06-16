@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Professional Menu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background-color: black;
+      font-family: 'Segoe UI', sans-serif;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: 
+        radial-gradient(2.5px 2.5px at 15% 25%, white, transparent),
+        radial-gradient(2px 2px at 40% 55%, #ccc, transparent),
+        radial-gradient(3px 3px at 65% 85%, #eee, transparent),
+        radial-gradient(1.5px 1.5px at 85% 15%, #bbb, transparent),
+        radial-gradient(2.2px 2.2px at 30% 70%, #ddd, transparent);
+      background-repeat: repeat;
+      background-size: 100% 100%;
+      animation: estrellasMover 150s linear infinite;
+      z-index: 1;
+      pointer-events: none;
+      filter: brightness(0.7);
+    }
+
+    @keyframes estrellasMover {
+      0% { background-position: 0 0; }
+      100% { background-position: 1200px 600px; }
+    }
+
+    nav {
+      position: relative;
+      z-index: 10;
+      background-color: #24292e;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-toggle img {
+      height: 30px;
+      vertical-align: middle;
+      cursor: pointer;
+      display: block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 200px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      z-index: 11;
+      top: 100%;
+      left: 0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+      transition: background-color 0.2s ease;
+    }
+
+    .dropdown-content a:hover,
+    .dropdown-content a:focus {
+      background-color: #f1f1f1;
+      outline: none;
+    }
+
+    /* Mostrar menú al hacer hover sobre el dropdown */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* También mostrar al enfocar con teclado para accesibilidad */
+    .dropdown:focus-within .dropdown-content {
+      display: block;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus {
+      background-color: #444c56;
+      border-color: #1b1f23;
+      outline: none;
+    }
+
+    .btn {
+      background-color: #2ea44f;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn:hover,
+    .btn:focus {
+      background-color: #2c974b;
+      outline: none;
+    }
+
+    .logout-btn {
+      background-color: #e74c3c;
+    }
+
+    .logout-btn:hover,
+    .logout-btn:focus {
+      background-color: #c0392b;
+      outline: none;
+    }
+
+    .fondos {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      width: calc(100vw * 8);
+      height: 100%;
+      animation: moverFondos 150s linear infinite;
+      z-index: 2;
+    }
+
+    .fondo {
+      flex: 0 0 100vw;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+      object-fit: cover;
+      filter: brightness(0.85) contrast(1.1);
+      mix-blend-mode: screen;
+      box-shadow: inset 50px 0 50px -30px black, inset -50px 0 50px -30px black;
+    }
+
+    .fondo1 { background-image: url('/images/Basquet.jpg'); }
+    .fondo2 { background-image: url('/images/Jordan.jpg'); }
+    .fondo3 { background-image: url('/images/Ronaldo (1).jpg'); }
+    .fondo4 { background-image: url('/images/SIUUU.jpg'); }
+    .fondo5 { background-image: url('/images/Tochito.jpg'); }
+    .fondo6 { background-image: url('/images/americano1 (1).jpg'); }
+    .fondo7 { background-image: url('/images/Volley.jpg'); }
+    .fondo8 { background-image: url('/images/Volley1.jpg'); }
+
+    @keyframes moverFondos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-700vw); }
+    }
+
+    .contenido {
+      position: fixed;
+      z-index: 9;
+      color: white;
+      text-align: center;
+      bottom: 8vh;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      text-shadow: 0 0 10px black;
+    }
+
+    .contenido h1 {
+      font-size: 3rem;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    .contenido p {
+      font-size: 1.5rem;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    /* Banner cookies */
+    #cookie-banner {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0,0,0,0.85);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 9999;
+      max-width: 90vw;
+      font-size: 1rem;
+    }
+
+    #cookie-banner button {
+      background-color: #2ea44f;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 4px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #cookie-banner button:hover,
+    #cookie-banner button:focus {
+      background-color: #2c974b;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+ 
+  <nav>
+    <div class="nav-left">
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" tabindex="0">
+          <img src="/images/icono.jpg" alt="Icono Formularios" />
+        </a>
+        <div class="dropdown-content" role="menu">
+          <a href="/dashboard" role="menuitem" tabindex="0">Formularios para los deportes</a>
+          <a href="/formtutor" role="menuitem" tabindex="0">Formulario de autorización para los padres</a>
+          <a href="/formdescuento" role="menuitem" tabindex="0">Formulario de descuento para la inscripción</a>
+          <a href="/reglas" role="menuitem" tabindex="0">Reglas</a>
+          <a href="/cierre" role="menuitem" tabindex="0">Página de cierre</a>
+      
+        </div>
+      </div>
+      <span style="color: white; font-weight: bold; margin-left: 10px;">National Sports Registrations</span>
+    </div>
+
+    <div class="nav-right">
+      <% if (user) { %>
+        <a href="/logout" class="btn logout-btn">Cerrar sesión</a>
+      <% } else { %>
+        <a href="/login" class="nav-link">Iniciar Sesión</a>
+        <a href="/register" class="btn">Registrarse</a>
+      <% } %>
+    </div>
+  </nav>
+
+  <div class="fondos">
+    <div class="fondo fondo1"></div>
+    <div class="fondo fondo2"></div>
+    <div class="fondo fondo3"></div>
+    <div class="fondo fondo4"></div>
+    <div class="fondo fondo5"></div>
+    <div class="fondo fondo6"></div>
+    <div class="fondo fondo7"></div>
+    <div class="fondo fondo8"></div>
+  </div>
+
+  <div class="contenido">
+    <h1>Welcome to National Sports Registrations</h1>
+    <p>Explora lo mejor de futbol , Basquet , Voleibol y Tochito</p>
+  </div>
+
+  <!-- Banner cookies -->
+  <div id="cookie-banner" style="display:none;">
+    Este sitio usa cookies para contar tus visitas. ¿Aceptas las cookies?
+    <button id="accept-cookies-btn">Aceptar</button>
+  </div>
+
+  <script>
+    // Función para obtener el valor de una cookie por nombre
+    function getCookie(name) {
+      const value = "; " + document.cookie;
+      const parts = value.split("; " + name + "=");
+      if (parts.length === 2) {
+        return parts.pop().split(";").shift();
+      }
+      return null;
+    }
+
+    // Función para establecer una cookie
+    function setCookie(name, value, days) {
+      const d = new Date();
+      d.setTime(d.getTime() + (days*24*60*60*1000));
+      const expires = "expires="+ d.toUTCString();
+      document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    }
+
+    // Contador de visitas solo si se aceptan cookies
+    function contarVisitas() {
+      let visitas = getCookie('visitasPaginaPrincipal');
+      if (visitas) {
+        visitas = parseInt(visitas) + 1;
+      } else {
+        visitas = 1;
+      }
+      setCookie('visitasPaginaPrincipal', visitas, 365);
+
+      console.log("Número de visitas a la página principal:", visitas);
+
+      const contenido = document.querySelector('.contenido p');
+      if (contenido) {
+        contenido.textContent += ` (Visitas a esta página: ${visitas})`;
+      }
+    }
+
+    // Control del banner de cookies
+    (function() {
+      const banner = document.getElementById('cookie-banner');
+      const acepta = getCookie('aceptaCookies');
+
+      if (acepta === 'true') {
+        // Ya aceptó, contamos visitas
+        contarVisitas();
+      } else {
+        // Mostrar banner y esperar aceptación
+        banner.style.display = 'flex';
+
+        document.getElementById('accept-cookies-btn').addEventListener('click', function(){
+          setCookie('aceptaCookies', 'true', 365);
+          banner.style.display = 'none';
+          contarVisitas();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

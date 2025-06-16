@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      background: linear-gradient(to bottom right, black, #0056b3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .button-group a button,
+    a button {
+      padding: 12px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin: 5px;
+    }
+
+    .button-group a button:hover,
+    a button:hover {
+      background-color: #004b99;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Selecciona un Deporte</h2>
+    <div class="button-group">
+      <a href="/form/futbol"><button>Fútbol</button></a>
+      <a href="/form/basquet"><button>Básquet</button></a>
+      <a href="/form/voleibol"><button>Voleibol</button></a>
+      <a href="/form/tocho"><button>Tocho Bandera</button></a>
+    </div>
+    <a href="/consultar"><button>Ver Registros</button></a>
+    <a href="/"><button>Volver a la página principal</button></a>
+  </div>
+</body>
+</html>

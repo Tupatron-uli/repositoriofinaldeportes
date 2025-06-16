@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario <%= deporte %></title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+ <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #000000, #8B0000); /* negro a rojo oscuro */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #d32f2f;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #a60000;
+    }
+
+    p {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    a {
+      color: #d32f2f;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+<body>
+  <div class="container">
+    <h2>Formulario para <%= deporte %></h2>
+    <form action="/guardar/<%= deporte %>" method="POST">
+      <input type="text" name="nombre" placeholder="Nombre" value="<%= datos?.nombre || '' %>" required>
+      <input type="text" name="apellido_paterno" placeholder="Apellido Paterno" value="<%= datos?.apellido_paterno || '' %>" required>
+      <input type="text" name="apellido_materno" placeholder="Apellido Materno" value="<%= datos?.apellido_materno || '' %>" required>
+      <input type="email" name="email" placeholder="Correo electrónico" value="<%= datos?.email || '' %>" required>
+      <input type="date" name="fecha_nacimiento" value="<%= datos?.fecha_nacimiento || '' %>" required>
+      <input type="text" name="salud" placeholder="Condiciones de Salud" value="<%= datos?.salud || '' %>" required>
+      <input type="text" name="domicilio" placeholder="Domicilio" value="<%= datos?.domicilio || '' %>" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" value="<%= datos?.telefono || '' %>" required>
+      <select name="sexo" required>
+        <option value="">Selecciona sexo</option>
+        <option value="Masculino" <%= datos?.sexo === 'Masculino' ? 'selected' : '' %>>Masculino</option>
+        <option value="Femenino" <%= datos?.sexo === 'Femenino' ? 'selected' : '' %>>Femenino</option>
+      </select>
+      <% if (datos) { %>
+        <button type="submit" formaction="/actualizar/<%= datos.id %>">Actualizar</button>
+      <% } else { %>
+        <button type="submit">Guardar</button>
+      <% } %>
+    </form>
+    <a href="/dashboard"><button>Volver al Panel</button></a>
+  </div>
+</body>
+</html>

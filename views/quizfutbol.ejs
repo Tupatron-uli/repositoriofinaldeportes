@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trivia de Fútbol</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #343a40;
+    }
+
+    form {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .pregunta {
+      margin-bottom: 30px;
+    }
+
+    .pregunta h3 {
+      color: #495057;
+    }
+
+    label {
+      display: block;
+      margin: 5px 0;
+      padding: 8px;
+      background: #e9ecef;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"] {
+      background: #007bff;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Trivia de Fútbol</h1>
+  <form action="/resultado" method="POST">
+    <% preguntas.forEach((pregunta, i) => { %>
+      <div class="pregunta">
+        <h3><%= i + 1 %>. <%= pregunta.pregunta %></h3>
+        <% pregunta.opciones.forEach(opcion => { %>
+          <label>
+            <input type="radio" name="respuesta_<%= i %>" value="<%= opcion %>" required>
+            <%= opcion %>
+          </label>
+        <% }) %>
+      </div>
+    <% }) %>
+    <div style="text-align: center;">
+      <input type="submit" value="Enviar respuestas">
+    </div>
+  </form>
+</body>
+</html>

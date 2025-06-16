@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resultado</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    .resultado {
+      background: rgba(0, 0, 0, 0.4);
+      display: inline-block;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .boton {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #ffc107;
+      color: #212529;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+
+    .boton:hover {
+      background-color: #e0a800;
+    }
+  </style>
+</head>
+<body>
+  <div class="resultado">
+    <h1>Resultado de la Trivia</h1>
+    <h2>Obtuviste <%= score %> de <%= total %> respuestas correctas</h2>
+    <a href="/triviafutbol" class="boton">Volver al inicio</a>
+  </div>
+</body>
+</html>
